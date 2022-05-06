@@ -25,6 +25,8 @@ class FirestoreHelper {
             "MAIL": mail,
         };
         addUser(uid, map);
+        DocumentSnapshot snapshot = await fireUser.doc(uid).get();
+        return Utilisateur(snapshot);
 
     }
 

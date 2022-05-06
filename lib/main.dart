@@ -175,12 +175,16 @@ class _MyHomePageState extends State<MyHomePage> {
                       if(selections[0] == true){
                         //Inscription
                         FirestoreHelper().Inscription(prenom, nom, mail, password).then((value){
-                          Navigator.push(context,MaterialPageRoute(
-                              builder : (context){
-                                //return Dashboard(mail : mail,password : password);
-                                return Dashboard();
-                              }
-                          ));
+                          setState(() {
+                            MyUser = value;
+                            Navigator.push(context,MaterialPageRoute(
+                                builder : (context){
+                                  //return Dashboard(mail : mail,password : password);
+                                  return Dashboard();
+                                }
+                            ));
+                          });
+
                         }).catchError((error){
                           ErrorDialogHelper().DialogErrorAuth('inscription', context);
                         });
