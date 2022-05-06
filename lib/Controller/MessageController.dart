@@ -47,6 +47,7 @@ class MessagecontrollerState extends State<Messagecontroller> {
                       discussion.to == widget.idPartner.uid) ||
                       (discussion.from == widget.idPartner.uid &&
                           discussion.to == widget.id.uid)) {
+
                     return MessageBubble(widget.id.uid, widget.idPartner, discussion);
                   }
                   else {
