@@ -57,7 +57,11 @@ class MyConversationsState extends State<MyConversations> {
                             ),
                             onTap: (){
                                 setState(() {
+                                    // Sauvegarder le partenaire
                                     MyPartenaire = user;
+                                    // Récupérer les messages
+
+
                                 });
                                 Navigator.push(context, MaterialPageRoute(
                                     builder: (context) => MyMessage()

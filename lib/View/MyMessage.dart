@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ikaya/Fonctions/FirestoreHelper.dart';
+import 'package:ikaya/Controller/MessageController.dart';
 import 'package:ikaya/library/constant.dart';
+import 'package:ikaya/model/Utilisateur.dart';
 import 'package:ikaya/modelView/ZoneText.dart';
+import 'package:ikaya/library/lib.dart';
 
 class MyMessage extends StatefulWidget {
     @override
@@ -25,7 +27,11 @@ class MyMessageState extends State<MyMessage> {
                 children: [
                     Container(
                         height: MediaQuery.of(context).size.height -100,
-                        width: MediaQuery.of(context).size.width
+                        width: MediaQuery.of(context).size.width,
+                        child: Messagecontroller(
+                            MyUser,
+                            MyPartenaire
+                        ),
                     ),
                     ZoneText(MyPartenaire, MyUser)
                 ],
