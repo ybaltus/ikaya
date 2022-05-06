@@ -40,6 +40,7 @@ class MessagecontrollerState extends State<Messagecontroller> {
           } else {
             List<DocumentSnapshot>documents = snapshot.data!.docs;
             return Scaffold(
+                backgroundColor: Colors.amber,
                 appBar: AppBar(
                     title: Text("${widget.idPartner.prenom} ${widget.idPartner.nom}"),
                 ),
