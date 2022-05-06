@@ -52,7 +52,7 @@ class MyConversationsState extends State<MyConversations> {
                                 leading: ImageRond(image: user.image,size:60),
 
                                 title: Text("${user.prenom} ${user.nom}"),
-                                subtitle: Text("${user.mail}"),
+                                subtitle: Text("Voir les messages"),
                                 ),
                             ),
                             onTap: (){

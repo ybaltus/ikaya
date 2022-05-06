@@ -16,10 +16,10 @@ class MessageBubble extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      margin: EdgeInsets.all(10),
-      child: Row(
-        children: widgetBubble(message.from==monId),
-      ),
+        margin: EdgeInsets.all(10),
+        child: Row(
+            children: widgetBubble(message.from==monId),
+        ),
     );
   }
   List< Widget> widgetBubble(bool moi){
@@ -28,23 +28,23 @@ class MessageBubble extends StatelessWidget{
     Color colorBubble =(moi)? Colors.green: Colors.blue;
     Color textcolor =Colors.white;
     return <Widget>[
-      Expanded(
-        child: Column(
-          crossAxisAlignment: alignment,
-          children: [
-            Card(
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(borderRadius:
-              BorderRadius.circular(10)),
-              color: colorBubble,
-              child: Container(
-                padding: EdgeInsets.all((animation?.value != null) ? animation!.value: 8.0) ,
-                child: Text(message.texte,style: TextStyle(color: textcolor),),
-              ),
+        Expanded(
+            child: Column(
+                crossAxisAlignment: alignment,
+                children: [
+                Card(
+                    elevation: 5.0,
+                    shape: RoundedRectangleBorder(borderRadius:
+                    BorderRadius.circular(10)),
+                    color: colorBubble,
+                    child: Container(
+                        padding: EdgeInsets.all((animation?.value != null) ? animation!.value: 8.0) ,
+                        child: Text(message.texte,style: TextStyle(color: textcolor),),
+                    ),
+                ),
+                ],
             ),
-          ],
-        ),
-      )
+        )
     ];
   }
 }
