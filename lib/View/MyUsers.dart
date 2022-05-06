@@ -93,21 +93,21 @@ class MyUsersState extends State<MyUsers>{
                     ),
                     ElevatedButton(
                         onPressed: (){
-                          //Stocker mon image dans la base de donnée
-                          FirestoreHelper().stockageImage(nameImage!, bytesImages!).then((value){
-                            setState(() {
-                              lienImage = value;
-                              MyUser.image = value;
+                            //Stocker mon image dans la base de donnée
+                            FirestoreHelper().stockageImage(nameImage!, bytesImages!).then((value){
+                                setState(() {
+                                    lienImage = value;
+                                    MyUser.image = value;
+                                    
+                                    Map<String,dynamic> map ={
+                                        "IMAGE": lienImage,
+                                    };
+                                    FirestoreHelper().updateUser(MyUser.uid, map);
+                                    Navigator.pop(context);
+                                });
                             });
-                          });
-                          Map<String,dynamic> map ={
-                            "IMAGE": lienImage,
-                          };
-                          FirestoreHelper().updateUser(MyUser.uid, map);
-                          Navigator.pop(context);
-
                         },
-                        child: const Text("Ok")
+                        child: const Text("Valider")
                     ),
                   ]
 
