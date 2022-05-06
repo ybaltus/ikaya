@@ -40,11 +40,23 @@ class MessagecontrollerState extends State<Messagecontroller> {
           } else {
             List<DocumentSnapshot>documents = snapshot.data!.docs;
             return Scaffold(
-                backgroundColor: Colors.amber,
                 appBar: AppBar(
                     title: Text("${widget.idPartner.prenom} ${widget.idPartner.nom}"),
                 ),
-                body: bodyPage(documents: documents),
+                body: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("assets/fond.jpg"),
+                          fit: BoxFit.fill
+                        )
+                      ),
+                      child: bodyPage(documents: documents),
+                    )
+
+                    ,],
+                )
             );
           }
         }

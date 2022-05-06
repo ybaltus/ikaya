@@ -22,6 +22,7 @@ class ZoneTextState extends State<ZoneText>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      height: 80,
       color: Colors.grey[300],
       padding: EdgeInsets.all(15),
       child: Row(

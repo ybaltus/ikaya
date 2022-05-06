@@ -23,19 +23,22 @@ class MyMessageState extends State<MyMessage> {
 
     Widget bodyPage() {
         return Scaffold(
-            body: Column(
-                children: [
-                    Container(
-                        height: MediaQuery.of(context).size.height -100,
-                        width: MediaQuery.of(context).size.width,
-                        child: Messagecontroller(
-                            MyUser,
-                            MyPartenaire
+            resizeToAvoidBottomInset: false,
+            body: SingleChildScrollView(
+                child: Column(
+                    children: [
+                        Container(
+                            height: MediaQuery.of(context).size.height-80,
+                            width: MediaQuery.of(context).size.width,
+                            child: Messagecontroller(
+                                MyUser,
+                                MyPartenaire
+                            ),
                         ),
-                    ),
-                    ZoneText(MyPartenaire, MyUser)
-                ],
-            ),
+                        ZoneText(MyPartenaire, MyUser)
+                    ],
+                ),
+            )
         );
     }
             
