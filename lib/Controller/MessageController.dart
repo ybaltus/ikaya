@@ -33,7 +33,7 @@ class MessagecontrollerState extends State<Messagecontroller> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
-        stream: FirestoreHelper().fire_message.orderBy('envoiMessage',descending: true).snapshots(),
+        stream: FirestoreHelper().fire_message.orderBy('envoiMessage',descending: false).snapshots(),
         builder: (BuildContext context, AsyncSnapshot <QuerySnapshot>snapshot) {
           if (!snapshot.hasData) {
             return const CircularProgressIndicator();
@@ -43,11 +43,11 @@ class MessagecontrollerState extends State<Messagecontroller> {
                 itemCount: documents.length,
                 itemBuilder: (BuildContext ctx,int index) {
                   Message discussion = Message(documents[index]);
-
                   if ((discussion.from == widget.id.uid &&
                       discussion.to == widget.idPartner.uid) ||
                       (discussion.from == widget.idPartner.uid &&
                           discussion.to == widget.id.uid)) {
+
                     return MessageBubble(widget.id.uid, widget.idPartner, discussion);
                   }
                   else {

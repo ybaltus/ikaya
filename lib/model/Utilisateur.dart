@@ -15,8 +15,6 @@ class Utilisateur{
     }
 
 
-
-
     //Constructeur
 
     Utilisateur(DocumentSnapshot snapshot){
