@@ -17,7 +17,7 @@ class DashboardState extends State<Dashboard>{
     return Scaffold(
 
         appBar : AppBar(
-            title : const Text("Accueil - Ikaya"),
+            title : const Text("Les conversations - Ikaya"),
             actions: [
             IconButton(onPressed: (){
                 FirestoreHelper().deconnexion();
@@ -43,16 +43,16 @@ class DashboardState extends State<Dashboard>{
         },
         items: const [
           BottomNavigationBarItem(
+              icon: Icon(Icons.chat),
+              label : "Messagerie"
+          ),
+          BottomNavigationBarItem(
               icon: Icon(Icons.person),
             label: "Utilisateurs"
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.settings),
             label : "Paramètres"
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label : "Messagerie"
           )
         ],
       ),
@@ -67,14 +67,14 @@ class DashboardState extends State<Dashboard>{
         });
       },
       children: [
+        // Accéder à la messagerie
+        MyConversations(),
+
         // Afficher tous les utilisateurs
         AllUsers(),
 
         // Créer une page de profil
-        MyUsers(),
-
-        // Accéder à la messagerie
-        MyConversations()
+        MyUsers()
       ],
       controller: controller,
     );
