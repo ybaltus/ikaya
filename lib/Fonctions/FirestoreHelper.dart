@@ -10,10 +10,59 @@ class FirestoreHelper {
     final auth = FirebaseAuth.instance;
     final fireUser = FirebaseFirestore.instance.collection("Users");
     final storage = FirebaseStorage.instance;
-
-
+    final fire_message = FirebaseFirestore.instance.collection("Message");
+    final fire_conversation=FirebaseFirestore.instance.collection('Conversations');
 
     //Méthodes
+
+    // Envoyer un message
+    sendMessage(String texte,Utilisateur user,Utilisateur moi){
+        DateTime date=DateTime.now();
+        Map <String,dynamic>map={
+            'from':moi.uid,
+            'to':user.uid,
+            'texte':texte,
+            'envoiMessage':date
+        };
+        String idDate = date.microsecondsSinceEpoch.toString();
+        addMessage(map, getMessageRef(moi.uid, user.uid, idDate));
+        addConversation(getConversation(moi.uid, user, texte, date), moi.uid);
+        addConversation(getConversation(user.uid, moi, texte, date), user.uid);
+    }
+
+    //Récupérer une conversation
+    Map <String,dynamic> getConversation(String sender,Utilisateur partenaire,String
+    texte,DateTime date){
+        Map <String,dynamic> map = partenaire.toMap();
+        map ['idmoi']=sender;
+        map['lastmessage']=texte;
+        map['envoimessage']=date;
+        map['destinateur']=partenaire.uid;
+        return map;
+    }
+
+    // Récupérer la référence d'un message
+    String getMessageRef(String from,String to,String date){
+        String resultat="";
+        List<String> liste=[from,to];
+        liste.sort((a,b)=>a.compareTo(b));
+        for(var x in liste){
+            resultat += x+"+";
+        }
+        resultat =resultat + date;
+        return resultat;
+    }
+
+
+    // Ajouter un message
+    addMessage(Map<String,dynamic> map,String uid){
+        fire_message.doc(uid).set(map);
+    }
+
+    // Ajouter une conversation
+    addConversation(Map<String,dynamic> map,String uid){
+        fire_conversation.doc(uid).set(map);
+    }
 
     // fonction pour s'inscrire
     Future Inscription(String prenom , String nom , String mail , String password) async {
