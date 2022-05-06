@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:ikaya/model/Utilisateur.dart';
-
 import '../Fonctions/FirestoreHelper.dart';
 import '../model/Message.dart';
 import '../modelView/MessageBubble.dart';
