@@ -1,5 +1,6 @@
 import 'package:ikaya/Fonctions/FirestoreHelper.dart';
 import 'package:ikaya/View/AllUsers.dart';
+import 'package:ikaya/View/MyMessages.dart';
 import 'package:ikaya/View/MyUsers.dart';
 import 'package:ikaya/main.dart';
 import 'package:flutter/material.dart';
@@ -17,14 +18,14 @@ class DashboardState extends State<Dashboard>{
 
         appBar : AppBar(
             title : const Text("Accueil - Ikaya"),
-          actions: [
+            actions: [
             IconButton(onPressed: (){
-              FirestoreHelper().deconnexion();
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context){
-                    return const MyHomePage(title: "");
-                  }
-              ));
+                FirestoreHelper().deconnexion();
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context){
+                        return const MyHomePage(title: "");
+                    }
+                ));
 
             },
                 icon: const Icon(Icons.exit_to_app ,color: Colors.red,)
@@ -70,9 +71,10 @@ class DashboardState extends State<Dashboard>{
         AllUsers(),
 
         // Créer une page de profil
-        MyUsers()
+        MyUsers(),
 
         // Accéder à la messagerie
+        MyMessages()
       ],
       controller: controller,
     );
