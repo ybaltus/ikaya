@@ -1,6 +1,6 @@
 import 'package:ikaya/Fonctions/FirestoreHelper.dart';
 import 'package:ikaya/View/AllUsers.dart';
-import 'package:ikaya/View/MyMessages.dart';
+import 'package:ikaya/View/MyConversations.dart';
 import 'package:ikaya/View/MyUsers.dart';
 import 'package:ikaya/main.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +74,7 @@ class DashboardState extends State<Dashboard>{
         MyUsers(),
 
         // Accéder à la messagerie
-        MyMessages()
+        MyConversations()
       ],
       controller: controller,
     );
