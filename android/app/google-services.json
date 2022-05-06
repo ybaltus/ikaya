@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "397885410877",
+    "project_id": "ikaya-fa56d",
+    "storage_bucket": "ikaya-fa56d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397885410877:android:1bdf75fbb304a0c6f32454",
+        "android_client_info": {
+          "package_name": "com.example.ikaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397885410877-bkfalpihu1rqjopbhpfitpi0h22s3kab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl1cyeV9QmVTZai8TraMpok7rgh7q221o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397885410877-bkfalpihu1rqjopbhpfitpi0h22s3kab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
